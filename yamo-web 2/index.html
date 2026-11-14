@@ -576,11 +576,6 @@ if ('serviceWorker' in navigator && location.protocol !== 'file:') {
   <button id="install-x" class="ib-x" aria-label="Fermer">&times;</button>
 </div>
 <script>
-if ('serviceWorker' in navigator && location.protocol !== 'file:') {
-  window.addEventListener('load', function () { navigator.serviceWorker.register('./sw.js').catch(function(){}); });
-}
-</script>
-<script>
 /* ---------- Installation « comme une app » ---------- */
 (function () {
   var deferred = null;
