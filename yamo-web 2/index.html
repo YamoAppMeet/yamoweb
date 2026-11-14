@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yamo — Rencontrez des personnes vraies, près de chez vous</title>
+<meta name="description" content="Yamo est l'application de rencontre ivoirienne pour faire des rencontres sérieuses près de chez vous. Profils vérifiés, messagerie sécurisée, communautés.">
+<meta name="theme-color" content="#E88D91">
+
+<meta property="og:title" content="Yamo — Rencontrez des personnes vraies">
+<meta property="og:description" content="Profils vérifiés, messagerie sécurisée, communautés. Faites des rencontres sérieuses près de chez vous.">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="application-name" content="Yamo">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Yamo">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/logo-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="stylesheet" href="css/tablet.css" media="(min-width: 700px)">
+</head>
+<body>
+
+<div id="demo-banner" class="demo-banner hidden">
+  Version de démonstration — les profils affichés sont fictifs. Branchez votre serveur pour passer en réel.
+</div>
+
+<!-- ============ EN-TÊTE ============ -->
+<header class="site-header">
+  <div class="wrap">
+    <a href="#top" class="logo">
+      <span class="logo-mark"><img src="assets/logo.svg" alt="Yamo"></span>
+      <span>Ya<em>mo</em></span>
+    </a>
+    <nav class="nav">
+      <a href="#fonctionnalites">Fonctionnalités</a>
+      <a href="#comment">Comment ça marche</a>
+      <a href="#tarifs">Tarifs</a>
+      <a href="#securite">Sécurité</a>
+    </nav>
+    <div class="header-actions">
+      <button class="btn btn-ghost btn-sm" data-go="login">Se connecter</button>
+      <button class="btn btn-primary btn-sm" data-go="signup">S'inscrire</button>
+      <button class="burger" id="burger" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu" class="wrap hidden" style="padding-bottom:18px;display:flex;flex-direction:column;gap:14px;">
+    <a href="#fonctionnalites">Fonctionnalités</a>
+    <a href="#comment">Comment ça marche</a>
+    <a href="#tarifs">Tarifs</a>
+    <a href="#securite">Sécurité</a>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-text">
+      <span class="badge-pill"><span class="dot"></span>Profils vérifiés · Côte d'Ivoire</span>
+      <h1>Des rencontres <em>vraies</em>,<br>près de chez vous.</h1>
+      <p class="lead">
+        Yamo réunit des personnes sincères qui cherchent une vraie relation.
+        Profils vérifiés, messagerie sécurisée, communautés par centre d'intérêt.
+      </p>
+      <div class="hero-cta">
+        <button class="btn btn-primary" data-go="signup">Créer mon compte gratuit</button>
+        <button class="btn btn-ghost" data-go="app">Voir l'aperçu du site</button>
+      </div>
+      <div class="hero-stats">
+        <div><strong>7 jours</strong><span>d'essai gratuit</span></div>
+        <div><strong>100 %</strong><span>profils contrôlés</span></div>
+        <div><strong>0 FCFA</strong><span>pour commencer</span></div>
+      </div>
+    </div>
+
+    <div class="phone-stage">
+      <div class="float-card fc-1">
+        <span class="ic" style="background:#e8f9ee;color:#16a34a;">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+        </span>
+        <div>Profil vérifié<small>Identité confirmée</small></div>
+      </div>
+      <div class="float-card fc-2">
+        <span class="ic" style="background:#FDF1F1;color:#E88D91;">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 21s-8-4.6-8-10.4A4.6 4.6 0 0 1 12 7a4.6 4.6 0 0 1 8 3.6C20 16.4 12 21 12 21z"/></svg>
+        </span>
+        <div>Nouveau match !<small>Vous vous plaisez</small></div>
+      </div>
+
+      <div class="phone">
+        <div class="phone-notch"></div>
+        <div class="phone-screen" id="hero-phone"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FONCTIONNALITÉS ============ -->
+<section class="pad" id="fonctionnalites">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Tout ce qu'il faut pour bien se rencontrer</div>
+      <h2>Une application pensée pour les rencontres sérieuses</h2>
+      <p>Tout ce que fait Yamo sur mobile, désormais accessible depuis votre navigateur.</p>
+    </div>
+    <div class="feat-grid" id="feat-grid"></div>
+  </div>
+</section>
+
+<!-- ============ COMMENT ÇA MARCHE ============ -->
+<section class="pad" id="comment" style="background:var(--bg-2);">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Simple comme bonjour</div>
+      <h2>Trois étapes, et c'est parti</h2>
+      <p>Pas de formulaire interminable. Vous pouvez commencer à discuter en quelques minutes.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="num">1</div>
+        <h3>Créez votre profil</h3>
+        <p>Ajoutez vos photos, votre âge et votre ville. Un profil complet reçoit bien plus de visites.</p>
+      </div>
+      <div class="step">
+        <div class="num">2</div>
+        <h3>Découvrez les profils</h3>
+        <p>Parcourez les personnes autour de vous, affinez par âge, ville et distance. Likez celles qui vous plaisent.</p>
+      </div>
+      <div class="step">
+        <div class="num">3</div>
+        <h3>Discutez et rencontrez</h3>
+        <p>Quand le like est partagé, la discussion s'ouvre. Partagez vos statuts et rejoignez des communautés.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TARIFS ============ -->
+<section class="pad" id="tarifs">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Des prix clairs, en FCFA</div>
+      <h2>Commencez gratuitement</h2>
+      <p>7 jours d'essai offert. Ensuite, vous choisissez. Aucun prélèvement surprise.</p>
+    </div>
+    <div class="pricing-grid" id="pricing-grid"></div>
+
+    <div style="margin-top:64px;">
+      <h3 style="font-size:19px;font-weight:800;letter-spacing:-.5px;margin-bottom:6px;">À l'unité, quand vous en avez besoin</h3>
+      <p style="color:var(--ink-3);font-size:14.5px;margin:0;">Payez par mobile money ou par carte, seulement si vous le souhaitez.</p>
+      <div class="extras" id="extras-grid"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SÉCURITÉ ============ -->
+<section class="pad" id="securite" style="background:var(--bg-2);">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Votre sécurité d'abord</div>
+      <h2>Un espace où l'on se sent en confiance</h2>
+      <p>Parce qu'une rencontre commence par la tranquillité d'esprit.</p>
+    </div>
+    <div class="feat-grid" id="securite-grid" style="grid-template-columns:repeat(2,1fr);"></div>
+  </div>
+</section>
+
+<!-- ============ TÉLÉCHARGEMENT ============ -->
+<section style="padding:0 0 92px;">
+  <div class="wrap">
+    <div class="download">
+      <div class="inner">
+        <div>
+          <h2>Yamo dans votre poche</h2>
+          <p>Les notifications en temps réel, la messagerie instantanée et la géolocalisation sont encore plus pratiques sur mobile.</p>
+          <div class="store-btns">
+            <a class="store-btn" id="btn-appstore" href="app.html" aria-label="Ouvrir Yamo">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 12.54c-.02-2.1 1.72-3.11 1.8-3.16-1-1.44-2.53-1.63-3.07-1.65-1.3-.13-2.55.77-3.21.77-.67 0-1.68-.75-2.77-.73-1.42.02-2.74.83-3.47 2.1-1.48 2.57-.38 6.37 1.06 8.46.7 1.02 1.54 2.16 2.64 2.12 1.06-.04 1.46-.68 2.74-.68 1.28 0 1.64.68 2.76.66 1.14-.02 1.86-1.04 2.55-2.06.8-1.18 1.13-2.32 1.15-2.38-.03-.01-2.2-.85-2.22-3.28M15.1 6.2c.58-.71.98-1.69.87-2.67-.84.03-1.87.56-2.48 1.27-.54.62-1.02 1.62-.89 2.58.94.07 1.9-.48 2.5-1.18"/></svg>
+              <span><small>Ouvrir Yamo</small><strong>Version web</strong></span>
+            </a>
+            <a class="store-btn" id="btn-playstore" href="app.html" aria-label="Ouvrir Yamo">
+              <svg viewBox="0 0 24 24"><path fill="#00D3FF" d="M3.6 2.3c-.3.3-.5.8-.5 1.4v16.6c0 .6.2 1.1.5 1.4l.1.1 9.3-9.3v-.2L3.7 2.2l-.1.1z"/><path fill="#FFCE00" d="M16.4 15.7l-3.4-3.4v-.2l3.4-3.4.1.1 4 2.3c1.1.6 1.1 1.7 0 2.3l-4 2.3h-.1z"/><path fill="#FF3A44" d="M16.5 15.6L13 12 3.6 21.7c.4.4 1 .4 1.7.1l11.2-6.2"/><path fill="#00C853" d="M16.5 8.4L5.3 2.2c-.7-.4-1.3-.3-1.7.1L13 12l3.5-3.6z"/></svg>
+              <span><small>Ouvrir Yamo</small><strong>Version web</strong></span>
+            </a>
+          </div>
+        </div>
+        <div style="text-align:center;">
+          <div style="width:132px;height:132px;margin:0 auto;background:#fff;border-radius:22px;display:grid;place-items:center;padding:12px;box-shadow:var(--shadow-lg);">
+            <img src="assets/logo.svg" alt="Yamo" style="width:100%;height:100%;object-fit:contain;">
+          </div>
+          <p style="font-size:12.5px;color:rgba(255,255,255,.62);margin-top:14px;">Scannez pour ouvrir<br>le site sur votre téléphone</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a href="#top" class="logo">
+          <span class="logo-mark"><img src="assets/logo.svg" alt="Yamo"></span>
+          <span>Ya<em>mo</em></span>
+        </a>
+        <p>La plateforme de rencontre ivoirienne pensée pour les relations sincères. Disponible sur mobile et sur le web.</p>
+      </div>
+      <div>
+        <h5>Produit</h5>
+        <ul>
+          <li><a href="#fonctionnalites">Fonctionnalités</a></li>
+          <li><a href="#tarifs">Abonnements</a></li>
+          <li><a href="#comment">Comment ça marche</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Yamo</h5>
+        <ul>
+          <li><a href="#securite">Sécurité</a></li>
+          <li><a href="#" data-page="legal">Conditions d'utilisation</a></li>
+          <li><a href="#" data-page="legal">Confidentialité</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Compte</h5>
+        <ul>
+          <li><a href="#" data-go="login">Se connecter</a></li>
+          <li><a href="#" data-go="signup">Créer un compte</a></li>
+          <li><a href="#" data-go="app">Ouvrir le site</a></li>
+          <li><a href="admin.html">Espace administrateur</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> Yamo. Tous droits réservés.</span>
+      <span>Fait en Côte d'Ivoire · Abidjan</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/config.js"></script>
+<script src="js/analytics.js"></script>
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+<script src="js/block.js"></script>
+<div id="install-bar" class="install-bar hidden">
+  <img src="assets/logo-192.png" alt="" width="38" height="38">
+  <div><strong>Installer Yamo</strong><span>Ouvrez le site comme une app, plein écran.</span></div>
+  <button id="install-btn" class="btn btn-primary btn-sm">Installer</button>
+  <button id="install-x" class="ib-x" aria-label="Fermer">&times;</button>
+</div>
+<script>
+if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+  window.addEventListener('load', function () { navigator.serviceWorker.register('./sw.js').catch(function(){}); });
+}
+
+/* ---------- Installation « comme une app » ----------
+   Android (Chrome) : bouton d'installation natif.
+   iPhone (Safari)  : petite fenêtre qui explique « Partager → Sur l'écran d'accueil ». */
+(function () {
+  var deferred = null;
+  var bar = document.getElementById('install-bar');
+  var btn = document.getElementById('install-btn');
+  var x = document.getElementById('install-x');
+  var standalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+  var isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+  var isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  var refused = false;
+  try { refused = localStorage.getItem('yamo_install_off') === '1'; } catch (e) {}
+
+  function hint(text) {
+    var old = document.getElementById('install-hint');
+    if (old) old.remove();
+    var box = document.createElement('div');
+    box.id = 'install-hint';
+    box.setAttribute('role', 'dialog');
+    box.style.cssText = 'position:fixed;left:12px;right:12px;bottom:12px;z-index:9999;background:#fff;border-radius:16px;padding:18px 18px 14px;box-shadow:0 12px 40px rgba(0,0,0,.22);font:15px/1.6 system-ui,-apple-system,sans-serif;color:#222;max-width:460px;margin:0 auto;';
+    box.innerHTML = '<strong style="display:block;font-size:16px;margin-bottom:6px;">Installer Yamo sur votre téléphone</strong>' +
+      '<div>' + text + '</div>' +
+      '<button id="install-hint-x" style="margin-top:12px;width:100%;border:0;background:#E88D91;color:#fff;font-weight:700;font-size:15px;padding:12px;border-radius:12px;">J\'ai compris</button>';
+    document.body.appendChild(box);
+    document.getElementById('install-hint-x').addEventListener('click', function () { box.remove(); });
+  }
+
+  if (bar && !standalone && !refused) {
+    setTimeout(function () { if (isMobile || deferred) bar.classList.remove('hidden'); }, 6000);
+  }
+  window.addEventListener('beforeinstallprompt', function (e) {
+    e.preventDefault(); deferred = e;
+    if (bar && !standalone && !refused) bar.classList.remove('hidden');
+  });
+  window.addEventListener('appinstalled', function () {
+    if (bar) bar.classList.add('hidden');
+  });
+  if (btn) btn.addEventListener('click', function () {
+    if (deferred) { deferred.prompt(); deferred = null; if (bar) bar.classList.add('hidden'); return; }
+    if (isIOS) {
+      hint('1. Touchez le bouton <b>Partager</b> (le carré avec une flèche vers le haut), en bas de Safari.<br>2. Faites défiler et touchez <b>« Sur l\'écran d\'accueil »</b>.<br>3. Touchez <b>Ajouter</b> : l\'icône Yamo apparaît sur votre écran.');
+    } else {
+      hint('1. Ouvrez le menu de votre navigateur (les trois points en haut à droite).<br>2. Touchez <b>« Installer l\'application »</b> ou <b>« Ajouter à l\'écran d\'accueil »</b>.<br>3. Confirmez : l\'icône Yamo apparaît sur votre écran.');
+    }
+  });
+  if (x) x.addEventListener('click', function () {
+    if (bar) bar.classList.add('hidden');
+    try { localStorage.setItem('yamo_install_off', '1'); } catch (e) {}
+  });
+})();
+</script>l>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yamo — Rencontrez des personnes vraies, près de chez vous</title>
+<meta name="description" content="Yamo est l'application de rencontre ivoirienne pour faire des rencontres sérieuses près de chez vous. Profils vérifiés, messagerie sécurisée, communautés.">
+<meta name="theme-color" content="#E88D91">
+
+<meta property="og:title" content="Yamo — Rencontrez des personnes vraies">
+<meta property="og:description" content="Profils vérifiés, messagerie sécurisée, communautés. Faites des rencontres sérieuses près de chez vous.">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="application-name" content="Yamo">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Yamo">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/logo-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+</head>
+<body>
+
+<div id="demo-banner" class="demo-banner hidden">
+  Version de démonstration — les profils affichés sont fictifs. Branchez votre serveur pour passer en réel.
+</div>
+
+<!-- ============ EN-TÊTE ============ -->
+<header class="site-header">
+  <div class="wrap">
+    <a href="#top" class="logo">
+      <span class="logo-mark"><img src="assets/logo.svg" alt="Yamo"></span>
+      <span>Ya<em>mo</em></span>
+    </a>
+    <nav class="nav">
+      <a href="#fonctionnalites">Fonctionnalités</a>
+      <a href="#comment">Comment ça marche</a>
+      <a href="#tarifs">Tarifs</a>
+      <a href="#securite">Sécurité</a>
+    </nav>
+    <div class="header-actions">
+      <button class="btn btn-ghost btn-sm" data-go="login">Se connecter</button>
+      <button class="btn btn-primary btn-sm" data-go="signup">S'inscrire</button>
+      <button class="burger" id="burger" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu" class="wrap hidden" style="padding-bottom:18px;display:flex;flex-direction:column;gap:14px;">
+    <a href="#fonctionnalites">Fonctionnalités</a>
+    <a href="#comment">Comment ça marche</a>
+    <a href="#tarifs">Tarifs</a>
+    <a href="#securite">Sécurité</a>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-text">
+      <span class="badge-pill"><span class="dot"></span>Profils vérifiés · Côte d'Ivoire</span>
+      <h1>Des rencontres <em>vraies</em>,<br>près de chez vous.</h1>
+      <p class="lead">
+        Yamo réunit des personnes sincères qui cherchent une vraie relation.
+        Profils vérifiés, messagerie sécurisée, communautés par centre d'intérêt.
+      </p>
+      <div class="hero-cta">
+        <button class="btn btn-primary" data-go="signup">Créer mon compte gratuit</button>
+        <button class="btn btn-ghost" data-go="app">Voir l'aperçu du site</button>
+      </div>
+      <div class="hero-stats">
+        <div><strong>7 jours</strong><span>d'essai gratuit</span></div>
+        <div><strong>100 %</strong><span>profils contrôlés</span></div>
+        <div><strong>0 FCFA</strong><span>pour commencer</span></div>
+      </div>
+    </div>
+
+    <div class="phone-stage">
+      <div class="float-card fc-1">
+        <span class="ic" style="background:#e8f9ee;color:#16a34a;">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+        </span>
+        <div>Profil vérifié<small>Identité confirmée</small></div>
+      </div>
+      <div class="float-card fc-2">
+        <span class="ic" style="background:#FDF1F1;color:#E88D91;">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 21s-8-4.6-8-10.4A4.6 4.6 0 0 1 12 7a4.6 4.6 0 0 1 8 3.6C20 16.4 12 21 12 21z"/></svg>
+        </span>
+        <div>Nouveau match !<small>Vous vous plaisez</small></div>
+      </div>
+
+      <div class="phone">
+        <div class="phone-notch"></div>
+        <div class="phone-screen" id="hero-phone"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FONCTIONNALITÉS ============ -->
+<section class="pad" id="fonctionnalites">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Tout ce qu'il faut pour bien se rencontrer</div>
+      <h2>Une application pensée pour les rencontres sérieuses</h2>
+      <p>Tout ce que fait Yamo sur mobile, désormais accessible depuis votre navigateur.</p>
+    </div>
+    <div class="feat-grid" id="feat-grid"></div>
+  </div>
+</section>
+
+<!-- ============ COMMENT ÇA MARCHE ============ -->
+<section class="pad" id="comment" style="background:var(--bg-2);">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Simple comme bonjour</div>
+      <h2>Trois étapes, et c'est parti</h2>
+      <p>Pas de formulaire interminable. Vous pouvez commencer à discuter en quelques minutes.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="num">1</div>
+        <h3>Créez votre profil</h3>
+        <p>Ajoutez vos photos, votre âge et votre ville. Un profil complet reçoit bien plus de visites.</p>
+      </div>
+      <div class="step">
+        <div class="num">2</div>
+        <h3>Découvrez les profils</h3>
+        <p>Parcourez les personnes autour de vous, affinez par âge, ville et distance. Likez celles qui vous plaisent.</p>
+      </div>
+      <div class="step">
+        <div class="num">3</div>
+        <h3>Discutez et rencontrez</h3>
+        <p>Quand le like est partagé, la discussion s'ouvre. Partagez vos statuts et rejoignez des communautés.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TARIFS ============ -->
+<section class="pad" id="tarifs">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Des prix clairs, en FCFA</div>
+      <h2>Commencez gratuitement</h2>
+      <p>7 jours d'essai offert. Ensuite, vous choisissez. Aucun prélèvement surprise.</p>
+    </div>
+    <div class="pricing-grid" id="pricing-grid"></div>
+
+    <div style="margin-top:64px;">
+      <h3 style="font-size:19px;font-weight:800;letter-spacing:-.5px;margin-bottom:6px;">À l'unité, quand vous en avez besoin</h3>
+      <p style="color:var(--ink-3);font-size:14.5px;margin:0;">Payez par mobile money ou par carte, seulement si vous le souhaitez.</p>
+      <div class="extras" id="extras-grid"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SÉCURITÉ ============ -->
+<section class="pad" id="securite" style="background:var(--bg-2);">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Votre sécurité d'abord</div>
+      <h2>Un espace où l'on se sent en confiance</h2>
+      <p>Parce qu'une rencontre commence par la tranquillité d'esprit.</p>
+    </div>
+    <div class="feat-grid" id="securite-grid" style="grid-template-columns:repeat(2,1fr);"></div>
+  </div>
+</section>
+
+<!-- ============ TÉLÉCHARGEMENT ============ -->
+<section style="padding:0 0 92px;">
+  <div class="wrap">
+    <div class="download">
+      <div class="inner">
+        <div>
+          <h2>Yamo dans votre poche</h2>
+          <p>Les notifications en temps réel, la messagerie instantanée et la géolocalisation sont encore plus pratiques sur mobile.</p>
+          <div class="store-btns">
+            <a class="store-btn" id="btn-appstore" href="app.html" aria-label="Ouvrir Yamo">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 12.54c-.02-2.1 1.72-3.11 1.8-3.16-1-1.44-2.53-1.63-3.07-1.65-1.3-.13-2.55.77-3.21.77-.67 0-1.68-.75-2.77-.73-1.42.02-2.74.83-3.47 2.1-1.48 2.57-.38 6.37 1.06 8.46.7 1.02 1.54 2.16 2.64 2.12 1.06-.04 1.46-.68 2.74-.68 1.28 0 1.64.68 2.76.66 1.14-.02 1.86-1.04 2.55-2.06.8-1.18 1.13-2.32 1.15-2.38-.03-.01-2.2-.85-2.22-3.28M15.1 6.2c.58-.71.98-1.69.87-2.67-.84.03-1.87.56-2.48 1.27-.54.62-1.02 1.62-.89 2.58.94.07 1.9-.48 2.5-1.18"/></svg>
+              <span><small>Ouvrir Yamo</small><strong>Version web</strong></span>
+            </a>
+            <a class="store-btn" id="btn-playstore" href="app.html" aria-label="Ouvrir Yamo">
+              <svg viewBox="0 0 24 24"><path fill="#00D3FF" d="M3.6 2.3c-.3.3-.5.8-.5 1.4v16.6c0 .6.2 1.1.5 1.4l.1.1 9.3-9.3v-.2L3.7 2.2l-.1.1z"/><path fill="#FFCE00" d="M16.4 15.7l-3.4-3.4v-.2l3.4-3.4.1.1 4 2.3c1.1.6 1.1 1.7 0 2.3l-4 2.3h-.1z"/><path fill="#FF3A44" d="M16.5 15.6L13 12 3.6 21.7c.4.4 1 .4 1.7.1l11.2-6.2"/><path fill="#00C853" d="M16.5 8.4L5.3 2.2c-.7-.4-1.3-.3-1.7.1L13 12l3.5-3.6z"/></svg>
+              <span><small>Ouvrir Yamo</small><strong>Version web</strong></span>
+            </a>
+          </div>
+        </div>
+        <div style="text-align:center;">
+          <div style="width:132px;height:132px;margin:0 auto;background:#fff;border-radius:22px;display:grid;place-items:center;padding:12px;box-shadow:var(--shadow-lg);">
+            <img src="assets/logo.svg" alt="Yamo" style="width:100%;height:100%;object-fit:contain;">
+          </div>
+          <p style="font-size:12.5px;color:rgba(255,255,255,.62);margin-top:14px;">Scannez pour ouvrir<br>le site sur votre téléphone</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a href="#top" class="logo">
+          <span class="logo-mark"><img src="assets/logo.svg" alt="Yamo"></span>
+          <span>Ya<em>mo</em></span>
+        </a>
+        <p>La plateforme de rencontre ivoirienne pensée pour les relations sincères. Disponible sur mobile et sur le web.</p>
+      </div>
+      <div>
+        <h5>Produit</h5>
+        <ul>
+          <li><a href="#fonctionnalites">Fonctionnalités</a></li>
+          <li><a href="#tarifs">Abonnements</a></li>
+          <li><a href="#comment">Comment ça marche</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Yamo</h5>
+        <ul>
+          <li><a href="#securite">Sécurité</a></li>
+          <li><a href="#" data-page="legal">Conditions d'utilisation</a></li>
+          <li><a href="#" data-page="legal">Confidentialité</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Compte</h5>
+        <ul>
+          <li><a href="#" data-go="login">Se connecter</a></li>
+          <li><a href="#" data-go="signup">Créer un compte</a></li>
+          <li><a href="#" data-go="app">Ouvrir le site</a></li>
+          <li><a href="admin.html">Espace administrateur</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> Yamo. Tous droits réservés.</span>
+      <span>Fait en Côte d'Ivoire · Abidjan</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/config.js"></script>
+<script src="js/analytics.js"></script>
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+<script src="js/block.js"></script>
+<div id="install-bar" class="install-bar hidden">
+  <img src="assets/logo-192.png" alt="" width="38" height="38">
+  <div><strong>Installer Yamo</strong><span>Ouvrez le site comme une app, plein écran.</span></div>
+  <button id="install-btn" class="btn btn-primary btn-sm">Installer</button>
+  <button id="install-x" class="ib-x" aria-label="Fermer">&times;</button>
+</div>
+<script>
+if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+  window.addEventListener('load', function () { navigator.serviceWorker.register('./sw.js').catch(function(){}); });
+}
+</script>
+
+/* ---------- Installation « comme une app » ---------- */
+(function () {
+  var deferred = null;
+  var bar = document.getElementById('install-bar');
+  var btn = document.getElementById('install-btn');
+  var x = document.getElementById('install-x');
+  var standalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+  var isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+  var isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+  var refused = false;
+  try { refused = localStorage.getItem('yamo_install_off') === '1'; } catch (e) {}
+
+  if (bar && !standalone && !refused) {
+    setTimeout(function () { if (isMobile || deferred) bar.classList.remove('hidden'); }, 6000);
+  }
+  window.addEventListener('beforeinstallprompt', function (e) {
+    e.preventDefault(); deferred = e;
+    if (bar && !standalone && !refused) bar.classList.remove('hidden');
+  });
+  if (btn) btn.addEventListener('click', function () {
+    if (deferred) { deferred.prompt(); deferred = null; if (bar) bar.classList.add('hidden'); return; }
+    if (isIOS) {
+      alert("Sur iPhone : touchez le bouton Partager en bas de Safari, puis « Sur l'écran d'accueil ».");
+    } else {
+      alert("Dans le menu de votre navigateur, choisissez « Installer l'application » ou « Ajouter à l'écran d'accueil ».");
+    }
+  });
+  if (x) x.addEventListener('click', function () {
+    if (bar) bar.classList.add('hidden');
+    try { localStorage.setItem('yamo_install_off', '1'); } catch (e) {}
+  });
+})();
+</script>
+</body>
+</html>

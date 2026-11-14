@@ -1,0 +1,69 @@
+/* ============================================================
+   YAMO — Tableaux « fiches » sur téléphone
+   Sur petit écran, chaque ligne de tableau devient une fiche
+   lisible : plus rien n'est coupé sur le côté.
+   ============================================================ */
+
+@media (max-width: 640px) {
+  .ad-table-wrap { overflow: visible; }
+
+  .ad-table thead { display: none; }
+
+  .ad-table,
+  .ad-table tbody,
+  .ad-table tr,
+  .ad-table td {
+    display: block;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .ad-table tr {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 13px;
+    padding: 6px 4px;
+    margin-bottom: 9px;
+  }
+
+  .ad-table tr:hover { background: #fff; }
+
+  .ad-table td {
+    border-bottom: 1px dashed #f1ebe9;
+    padding: 8px 12px;
+    font-size: 12.5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    text-align: right;
+  }
+
+  .ad-table td:last-child { border-bottom: none; }
+
+  /* L'intitulé de la colonne est rappelé à gauche de chaque valeur */
+  .ad-table td::before {
+    content: attr(data-label);
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .4px;
+    color: var(--ink-3);
+    text-align: left;
+    flex-shrink: 0;
+  }
+
+  .ad-table td:first-child {
+    background: #fdfbfa;
+    border-radius: 9px;
+    margin-bottom: 3px;
+    font-size: 13.5px;
+  }
+
+  .ad-table td[colspan] {
+    display: block;
+    text-align: center;
+    border-bottom: none;
+  }
+  .ad-table td[colspan]::before { content: none; }
+}

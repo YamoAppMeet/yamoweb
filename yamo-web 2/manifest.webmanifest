@@ -1,0 +1,21 @@
+{
+  "name": "Yamo — Rencontres sérieuses",
+  "short_name": "Yamo",
+  "description": "Yamo est l'application de rencontre pour faire des rencontres sérieuses près de chez vous : Côte d'Ivoire, Afrique de l'Ouest, Maghreb, Europe et Amérique du Nord.",
+  "start_url": "./app.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#ffffff",
+  "theme_color": "#E88D91",
+  "lang": "fr",
+  "icons": [
+    { "src": "assets/logo-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "assets/logo-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "assets/logo-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Découvrir", "url": "./app.html#discover" },
+    { "name": "Messages", "url": "./app.html#messages" }
+  ]
+}

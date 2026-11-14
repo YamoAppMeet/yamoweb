@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yamo — Espace administrateur</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#E88D91">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/admin.css">
+<link rel="stylesheet" href="css/tablet.css">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/logo-192.png" sizes="192x192" type="image/png">
+</head>
+<body data-page="admin">
+
+<!-- ============ CONNEXION ============ -->
+<div id="ad-gate" class="ad-gate hidden">
+  <div class="ad-gate-card">
+    <a href="index.html" class="ad-gate-logo"><img src="assets/logo.svg" alt="Yamo"><span>Ya<em>mo</em></span></a>
+    <h1>Espace administrateur</h1>
+    <p>Cet espace est réservé à l'équipe Yamo. Il donne accès à la fréquentation du site et à la liste des inscrits.</p>
+    <form id="ad-login" autocomplete="off">
+      <label for="ad-code">Code administrateur</label>
+      <input id="ad-code" type="password" placeholder="Entrez votre code" autocomplete="current-password">
+      <p id="ad-err" class="ad-err" role="alert"></p>
+      <button type="submit" class="btn btn-primary btn-block">Ouvrir le tableau de bord</button>
+    </form>
+    <ul class="ad-gate-rules">
+      <li>Accès strictement réservé à l'administrateur du site.</li>
+      <li>Après 5 codes incorrects, l'accès se bloque 5 minutes.</li>
+      <li>Chaque connexion est enregistrée dans un journal.</li>
+    </ul>
+    <p class="ad-gate-note">En démonstration, le code est indiqué dans le guide (section « Espace administrateur »). Sur un vrai site, la protection réelle vient du serveur : seule une personne connectée avec un compte administrateur peut entrer, et non un simple code.</p>
+    <a href="app.html" class="ad-gate-back">← Revenir à l'application</a>
+  </div>
+</div>
+
+<!-- ============ TABLEAU DE BORD ============ -->
+<div id="ad-app" class="ad-shell hidden">
+  <header class="ad-top">
+    <a href="index.html" class="ad-logo"><img src="assets/logo.svg" alt="Yamo"><span>Ya<em>mo</em></span><b>Admin</b></a>
+    <div class="ad-top-right">
+      <span class="ad-demo">Mode démonstration</span>
+      <a href="app.html" class="btn btn-ghost btn-sm">Voir le site</a>
+      <button id="ad-logout" class="btn btn-ghost btn-sm">Déconnexion</button>
+    </div>
+  </header>
+  <main class="ad-main">
+    <div class="ad-head">
+      <div>
+        <h1>Tableau de bord</h1>
+        <p id="ad-date"></p>
+      </div>
+      <button class="btn btn-primary btn-sm" id="ad-refresh">Actualiser</button>
+    </div>
+    <div id="ad-view"></div>
+  </main>
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script src="js/config.js"></script>
+<script src="js/data.js"></script>
+<script src="js/analytics.js"></script>
+<script src="js/admin.js"></script>
+<script>
+(function () {
+  var d = new Date();
+  var days = ['dimanche','lundi','mardi','mercredi','jeudi','vendredi','samedi'];
+  var months = ['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
+  var el = document.getElementById('ad-date');
+  if (el) el.textContent = days[d.getDay()] + ' ' + d.getDate() + ' ' + months[d.getMonth()] + ' ' + d.getFullYear();
+  var r = document.getElementById('ad-refresh');
+  if (r) r.addEventListener('click', function () { if (window.YamoAdmin) window.YamoAdmin.render(); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yamo — Mon espace</title>
+<meta name="theme-color" content="#E88D91">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="application-name" content="Yamo">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Yamo">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/logo-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="stylesheet" href="css/tablet.css" media="(min-width: 700px)">
+</head>
+<body>
+
+<div id="demo-banner" class="demo-banner hidden">Version de démonstration — profils fictifs, aucune donnée réelle n'est enregistrée.</div>
+
+<div class="app-shell">
+
+  <!-- ============ MENU LATÉRAL ============ -->
+  <aside class="app-side">
+    <a href="index.html" class="logo">
+      <span class="logo-mark"><img src="assets/logo.svg" alt="Yamo"></span>
+      <span>Ya<em>mo</em></span>
+    </a>
+    <nav class="app-nav" id="app-nav"></nav>
+    <div class="me-mini" id="me-mini"></div>
+  </aside>
+
+  <!-- ============ ZONE PRINCIPALE ============ -->
+  <main class="app-main">
+    <div class="app-top">
+      <div>
+        <h1 id="page-title">Découvrir</h1>
+        <p id="page-sub">Des profils qui vous correspondent, près de chez vous.</p>
+      </div>
+      <div id="page-actions" style="display:flex;gap:10px;flex-wrap:wrap;"></div>
+    </div>
+    <div id="view"></div>
+  </main>
+</div>
+
+<div id="modal-root"></div>
+<div id="toast" class="toast"></div>
+
+<script src="js/config.js"></script>
+<script src="js/analytics.js"></script>
+<script src="js/countries.js"></script>
+<script src="js/data.js"></script>
+<script src="js/moderation.js"></script>
+<script src="js/app.js"></script>
+<script src="js/block.js"></script>
+<div id="install-bar" class="install-bar hidden">
+  <img src="assets/logo-192.png" alt="" width="38" height="38">
+  <div><strong>Installer Yamo</strong><span>Ouvrez le site comme une app, plein écran.</span></div>
+  <button id="install-btn" class="btn btn-primary btn-sm">Installer</button>
+  <button id="install-x" class="ib-x" aria-label="Fermer">&times;</button>
+</div>
+<script>
+if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+  window.addEventListener('load', function () { navigator.serviceWorker.register('./sw.js').catch(function(){}); });
+}
+</script>
+
+/* ---------- Installation « comme une app » ---------- */
+(function () {
+  var deferred = null;
+  var bar = document.getElementById('install-bar');
+  var btn = document.getElementById('install-btn');
+  var x = document.getElementById('install-x');
+  var standalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+  var isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+  var isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+  var refused = false;
+  try { refused = localStorage.getItem('yamo_install_off') === '1'; } catch (e) {}
+
+  if (bar && !standalone && !refused) {
+    setTimeout(function () { if (isMobile || deferred) bar.classList.remove('hidden'); }, 6000);
+  }
+  window.addEventListener('beforeinstallprompt', function (e) {
+    e.preventDefault(); deferred = e;
+    if (bar && !standalone && !refused) bar.classList.remove('hidden');
+  });
+  if (btn) btn.addEventListener('click', function () {
+    if (deferred) { deferred.prompt(); deferred = null; if (bar) bar.classList.add('hidden'); return; }
+    if (isIOS) {
+      alert("Sur iPhone : touchez le bouton Partager en bas de Safari, puis « Sur l'écran d'accueil ».");
+    } else {
+      alert("Dans le menu de votre navigateur, choisissez « Installer l'application » ou « Ajouter à l'écran d'accueil ».");
+    }
+  });
+  if (x) x.addEventListener('click', function () {
+    if (bar) bar.classList.add('hidden');
+    try { localStorage.setItem('yamo_install_off', '1'); } catch (e) {}
+  });
+})();
+</body>
+</html>
