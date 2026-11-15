@@ -1,57 +1,41 @@
 /* ============================================================
-   YAMO — Configuration du site
-   ------------------------------------------------------------
-   À REMPLIR avec vos propres valeurs avant la mise en ligne.
-   Ne mettez JAMAIS ici la clé « service_role » de Supabase
-   ni la clé secrète Paystack : elles resteraient visibles
-   par tout le monde dans le navigateur.
+   YAMO — Configuration du site — BRANCHÉ LIVE
    ============================================================ */
 
 window.YAMO_CONFIG = {
-  // Adresse de votre serveur Yamo (celui de index.js)
-  // Exemple : 'https://api.yamo.app'
+  // Serveur Yamo
   API_BASE_URL: 'https://api.yamo.app',
 
-  // Clé publique Supabase (appelée « anon key ») — elle est faite pour être publique.
-  SUPABASE_URL: 'https://VOTRE-PROJET.supabase.co',
-  SUPABASE_ANON_KEY: 'VOTRE_CLE_ANON_PUBLIQUE',
+  // SUPABASE - BRANCHÉ
+  SUPABASE_URL: 'https://doddgvfzchiviaybdfij.supabase.co',
+  SUPABASE_ANON_KEY: 'METS_ICI_TA_CLE_sb_publishable_QUE_TU_AS_EN_PHOTO',
 
-  // Liens des boutiques (à remplacer quand l'app sera publiée)
+  // PAYSTACK LIVE - BRANCHÉ
+  PAYSTACK_PUBLIC_KEY: 'pk_live_aea72d89d2b99f4eabb193a9115c14b07e8d3162',
+  PAYSTACK_PUBLIC: 'pk_live_aea72d89d2b99f4eabb193a9115c14b07e8d3162',
+  CURRENCY: 'XOF',
+
+  // Liens des boutiques
   APP_STORE_URL: '#',
   PLAY_STORE_URL: '#',
 
-  // Numéro WhatsApp / support Yamo
+  // Support
   SUPPORT_WHATSAPP: '',
 
-  /* ------------------------------------------------------------
-     CONNEXION PAR TÉLÉPHONE (code envoyé sur WhatsApp)
-     ------------------------------------------------------------
-     Rien à mettre ici en ce qui concerne Whatsapp : les clés
-     secrètes (jeton Meta, mot de passe du modèle de message)
-     doivent rester UNIQUEMENT sur le serveur, jamais ici.
-     Voir GUIDE.md, section « Connexion par WhatsApp ».
-  */
   PHONE_AUTH: {
-    // Indicatif proposé par défaut
     DEFAULT_COUNTRY_CODE: '+225',
-    // Durée de validité du code (secondes) — doit correspondre au serveur
     CODE_TTL: 300,
-    // Attente avant de pouvoir redemander un code (secondes)
     RESEND_DELAY: 30,
   },
 
-  // Code affiché en mode démonstration (aucun message réel n'est envoyé)
   DEMO_OTP_CODE: '123456',
-
-  /* ------------------------------------------------------------
-     ESPACE ADMINISTRATEUR (admin.html)
-     ------------------------------------------------------------
-     En démonstration, ce code ouvre le tableau de bord.
-     Sur un vrai site, l'accès passe par un compte administrateur
-     vérifié sur le serveur : ce code ne suffit plus. */
   ADMIN_DEMO_CODE: 'YAMO-ADMIN',
 
-  // Mode démonstration : true = le site fonctionne avec des données d'exemple,
-  // sans serveur. Utile pour voir le design avant de tout brancher.
-  DEMO_MODE: true,
+  // Mode démonstration : false = MODE RÉEL, plus de faux profils
+  DEMO_MODE: false,
 };
+
+// Pour que tout le code comprenne les clés
+window.SUPABASE_URL = window.YAMO_CONFIG.SUPABASE_URL;
+window.SUPABASE_ANON_KEY = window.YAMO_CONFIG.SUPABASE_ANON_KEY;
+window.PAYSTACK_PUBLIC_KEY = window.YAMO_CONFIG.PAYSTACK_PUBLIC_KEY;
